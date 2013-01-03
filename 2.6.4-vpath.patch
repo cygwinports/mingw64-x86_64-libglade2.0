@@ -1,0 +1,14 @@
+--- origsrc/libglade-2.6.4/glade/Makefile.am	2009-03-17 09:19:00.000000000 -0500
++++ src/libglade-2.6.4/glade/Makefile.am	2013-01-03 01:05:06.558966200 -0600
+@@ -10,9 +10,10 @@
+ LTVERSION = 0:7:0
+ 
+ if OS_WIN32
+-export_symbols = -export-symbols glade.def
++export_symbols = -export-symbols $(srcdir)/glade.def
+ 
+ install-libtool-import-lib:
++	$(MKDIR_P) $(DESTDIR)$(libdir)
+ 	$(INSTALL) .libs/libglade-2.0.dll.a $(DESTDIR)$(libdir)
+ 
+ uninstall-libtool-import-lib:
