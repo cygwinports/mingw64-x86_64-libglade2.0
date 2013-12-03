@@ -4,7 +4,7 @@ inherit cross gnome2
 
 NAME="mingw64-x86_64-libglade2.0"
 VERSION=2.6.4
-RELEASE=1
+RELEASE=3
 CATEGORY="Devel"
 SUMMARY="Glade interface loading library for Win64 toolchain"
 DESCRIPTION="This package does NOT contain cygwin binaries.  Instead, it
@@ -12,6 +12,10 @@ contains msvcrt-linked binaries (aka 'mingw').  It is for use with the
 mingw64-x86_64-gcc cross compiler, and installs into the
 /usr/x86_64-w64-mingw32/sys-root/mingw/{lib,include} directories."
 
-PATCH_URI="2.6.4-vpath.patch"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/mingw-libglade2.git/plain/libglade-2.0.1-nowarning.patch
+	http://pkgs.fedoraproject.org/cgit/mingw-libglade2.git/plain/libglade-secondary.patch
+	2.6.4-vpath.patch
+"
 
 MAKEOPTS+=" bin_SCRIPTS= xml_DATA= "
